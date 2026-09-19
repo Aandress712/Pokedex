@@ -1,70 +1,97 @@
 import React, {useEffect, useState} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
-import { ListGroup } from "react-bootstrap";
-
+import { Figure, ListGroup } from "react-bootstrap";
 import { getPokemons } from "../controller/getpokemon";
 import { Pokemon } from "../models/pokemon.m";
 import './Css/cssProyectos.css';
 
-
 const Listado=() => {
-    const [pokemons, setPokemons] = useState<Pokemon[]>([]);
-
-    useEffect(() => {
-        const obtenerPokemons = async () => {
-            const allPokemons = await getPokemons();
-            setPokemons(allPokemons);
-        };
-        obtenerPokemons();
-    });
-
-    return (
-        <>
-
-          <div className="content-wrapper">
-            
-            <div className="content">
-                <div className="row gap-3">
-                  
-                  <h1 className="text-center" ><b>Pokémon AnderCode</b></h1>
-
-                  {pokemons?.slice(0, 150).map((pokemon) => (
-
-                     <Card className="mx-auto">
-                     <Card.Header className="text-center tipoCard"><b>{pokemon.tipo}</b></Card.Header>
-                     <div className="Imagen">
-                        {/* Imagen normal (visible por defecto) */}
-                        <img 
-                          src={pokemon.imgnormal} 
-                          className="imagenPrincipal" 
-                          alt={pokemon.name} 
-                        />
-                        {/* Imagen secundaria / shiny (oculta por defecto) */}
-                        <img 
-                          src={pokemon.imggif} // 👈 Asegúrate de usar la propiedad correcta de tu objeto pokemon
-                          className="imagenSecundaria" 
-                          alt={`${pokemon.name} shiny`} 
-                        />
-                      </div>
+   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+   useEffect(() => {
+      const obtenerPokemons = async () => {
+         const allPokemons = await getPokemons();
+         setPokemons(allPokemons);
+      };
+      obtenerPokemons();
+   });
+   
+   return (
+   <>
+   <div className="content-wrapper">
+      <div className="content">
+         <div className="row gap-3">
+            <h1 className="text-center" ><b>Pokémon AnderCode</b></h1>
+            {pokemons?.slice(0, 150).map((pokemon) => (
+               <Card className="mx-auto">
+                  <Card.Header className="text-center tipoCard"><b>TIPO: {pokemon.tipo}</b></Card.Header>
+                  <div className="Imagen">
+                     {/* Imagen normal (visible por defecto) */}
+                     <img
+                     src={pokemon.imgnormal} 
+                     className="imagenPrincipal" 
+                     alt={pokemon.name} 
+                     />
+                     {/* Imagen secundaria / shiny (oculta por defecto) */}
+                     <img 
+                     src={pokemon.imggif} // 👈 Asegúrate de usar la propiedad correcta de tu objeto pokemon
+                     className="imagenSecundaria" 
+                     alt={`${pokemon.name} shiny`} 
+                     />
+                     </div>
                      <Card.Body className="cuerpoCarta">
-                        <Card.Title className="text-center">{pokemon.name}</Card.Title>
+                        <Card.Title className="text-center"><b>{pokemon.name}</b></Card.Title>
                         <Card.Text>
                            {pokemon.name} no tiene descripción.
                         </Card.Text>
                         <ListGroup className="list-group-flush stats-list">
-                           <ListGroup.Item><b>Número Pokemon:</b> {pokemon.id}</ListGroup.Item>
-                           <ListGroup.Item>HP: {pokemon.hp}</ListGroup.Item>
-                           <ListGroup.Item>Ataque: {pokemon.attack}</ListGroup.Item>
-                           <ListGroup.Item>Defensa: {pokemon.defense}</ListGroup.Item>
-                           <ListGroup.Item>Ataque Especial: {pokemon.sp_atk}</ListGroup.Item>
-                           <ListGroup.Item>Defensa Especial: {pokemon.sp_def}</ListGroup.Item>
-                           <ListGroup.Item>Velocidad: {pokemon.speed}</ListGroup.Item>
+                           <ListGroup.Item>
+                            <Figure.Image className="iconNumber"
+                               src='https://cdn-icons-png.flaticon.com/128/19027/19027324.png'
+                            />
+                              <b> Número Pokemon: </b> {pokemon.id}
+                              </ListGroup.Item>
+                           <ListGroup.Item>
+                              <Figure.Image className="iconVida"
+                               src='https://cdn-icons-png.flaticon.com/128/753/753252.png'
+                              />
+                              <b> HP: </b> {pokemon.hp}
+                              </ListGroup.Item>
+                           <ListGroup.Item>
+                              <Figure.Image className="iconAtaque"
+                               src='https://cdn-icons-png.flaticon.com/128/8294/8294510.png'
+                              />
+                              <b> Ataque: </b> {pokemon.attack}
+                              </ListGroup.Item>
+                           <ListGroup.Item>
+                              <Figure.Image className="iconDefensa"
+                               src='https://cdn-icons-png.flaticon.com/128/8294/8294515.png'
+                              />
+                              <b> Defensa: </b> {pokemon.defense}
+                           </ListGroup.Item>
+                           <ListGroup.Item>
+                              <Figure.Image className="iconSpAtk"
+                               src='https://cdn-icons-png.flaticon.com/128/297/297837.png'
+                              />
+                              <b> Ataque Especial: </b> {pokemon.sp_atk}
+                           </ListGroup.Item>
+                           <ListGroup.Item>
+                              <Figure.Image className="iconSpDef"
+                               src='https://cdn-icons-png.flaticon.com/128/8037/8037114.png'
+                              />
+                              <b> Defensa Especial: </b> {pokemon.sp_def}
+                           </ListGroup.Item>
+                           <ListGroup.Item>
+                              <Figure.Image className="iconVelocidad"
+                               src='https://cdn-icons-png.flaticon.com/128/6577/6577234.png'
+                              />
+                              <b> Velocidad: </b> {pokemon.speed}
+                           </ListGroup.Item>
                         </ListGroup>
                         {/* comentario <button>Ver más</button> */}
-                     </Card.Body>
-                  </Card>
-               ))}
+                        </Card.Body>
+                        </Card>
+                     ))}
 
 
 

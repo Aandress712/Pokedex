@@ -21,6 +21,9 @@
     border: 5px solid rgb(56, 56, 56);
 }
 .Imagen {
+    background-image: url('https://i.pinimg.com/736x/14/eb/58/14eb5872befec6e02f164eaa9f5e8414.jpg');
+    background-size: cover;
+    background-position: center;
     background-color: rgb(0, 26, 255);
     width: 295px;
     height: 280px;
@@ -59,11 +62,33 @@
 .stats-list .list-group-item {
     background-color: transparent;
 }
-.h1 {
-    text-align: center;
-    color: rgb(230, 171, 9);
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+.iconNumber {
+    width: 20px;
+    height: 20px;
+}
+.iconVida {
+    width: 20px;
+    height: 20px;
+}
+.iconAtaque {
+    width: 20px;
+    height: 20px;
+}
+.iconDefensa {
+    width: 20px;
+    height: 20px;
+}
+.iconSpAtk {
+    width: 20px;
+    height: 20px;
+}
+.iconSpDef {
+    width: 20px;
+    height: 20px;
+}
+.iconVelocidad {
+    width: 20px;
+    height: 20px;
 }
 
 
