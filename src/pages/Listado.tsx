@@ -5,6 +5,7 @@ import { ListGroup } from "react-bootstrap";
 
 import { getPokemons } from "../controller/getpokemon";
 import { Pokemon } from "../models/pokemon.m";
+import './Css/cssProyectos.css';
 
 
 const Listado=() => {
@@ -20,23 +21,39 @@ const Listado=() => {
 
     return (
         <>
-          <h1>Pokémon AnderCode</h1>
 
           <div className="content-wrapper">
+            
             <div className="content">
                 <div className="row gap-3">
+                  
+                  <h1 className="text-center" ><b>Pokémon AnderCode</b></h1>
 
-                  {pokemons?.slice(0, 10).map((pokemon) => (
+                  {pokemons?.slice(0, 150).map((pokemon) => (
 
-                     <Card className="mx-auto" style={{ width: '18rem' }}>
-                     <Card.Header className="text-center"><b>{pokemon.tipo}</b></Card.Header>
-                     <Card.Img width={80} height={180} variant="top" src={pokemon.imggif} />
-                     <Card.Body>
+                     <Card className="mx-auto">
+                     <Card.Header className="text-center tipoCard"><b>{pokemon.tipo}</b></Card.Header>
+                     <div className="Imagen">
+                        {/* Imagen normal (visible por defecto) */}
+                        <img 
+                          src={pokemon.imgnormal} 
+                          className="imagenPrincipal" 
+                          alt={pokemon.name} 
+                        />
+                        {/* Imagen secundaria / shiny (oculta por defecto) */}
+                        <img 
+                          src={pokemon.imggif} // 👈 Asegúrate de usar la propiedad correcta de tu objeto pokemon
+                          className="imagenSecundaria" 
+                          alt={`${pokemon.name} shiny`} 
+                        />
+                      </div>
+                     <Card.Body className="cuerpoCarta">
                         <Card.Title className="text-center">{pokemon.name}</Card.Title>
                         <Card.Text>
                            {pokemon.name} no tiene descripción.
                         </Card.Text>
-                        <ListGroup className="list-group-flush">
+                        <ListGroup className="list-group-flush stats-list">
+                           <ListGroup.Item><b>Número Pokemon:</b> {pokemon.id}</ListGroup.Item>
                            <ListGroup.Item>HP: {pokemon.hp}</ListGroup.Item>
                            <ListGroup.Item>Ataque: {pokemon.attack}</ListGroup.Item>
                            <ListGroup.Item>Defensa: {pokemon.defense}</ListGroup.Item>

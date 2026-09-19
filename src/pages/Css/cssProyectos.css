@@ -1,0 +1,73 @@
+.content-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.171);
+}
+.content {
+    background-color: rgba(0, 0, 0, 0.164);
+}
+.mx-auto {
+    background-image: url('https://img.magnific.com/vector-gratis/arte-pop-comic-lineas-zoom-expresion_84443-21877.jpg?semt=ais_hybrid&w=740&q=80');
+    width: 20rem;
+}
+.tipoCard {
+    width: 10rem;
+    justify-content: center;
+    width: 295px;
+    background-color: rgb(230, 171, 9);
+    border-radius: 20px;
+    border: 5px solid rgb(56, 56, 56);
+}
+.Imagen {
+    background-color: rgb(0, 26, 255);
+    width: 295px;
+    height: 280px;
+    justify-content: center;
+    border-radius: 0px 0px 20px 20px;
+    border: 5px solid rgb(56, 56, 56);
+}
+.imagenPrincipal {
+    width: 100%;
+    height: auto;
+    justify-content: center;
+}
+.imagenSecundaria {
+    width: 90%;
+    height: auto;
+    display: none;
+    justify-content: center;
+}
+.Imagen:hover .imagenSecundaria {
+    display: block;
+    justify-content: center;
+}
+.Imagen:hover .imagenPrincipal {
+    display: none;
+    justify-content: center;
+}
+
+.cuerpoCarta {
+    background-color: transparent;
+    border: 2px solid rgba(2, 2, 2, 0.473);
+}
+.stats-list { 
+    background-color: rgba(69, 70, 69, 0.521);
+    border: 2px solid rgba(2, 2, 2, 0.473);
+}
+.stats-list .list-group-item {
+    background-color: transparent;
+}
+.h1 {
+    text-align: center;
+    color: rgb(230, 171, 9);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
