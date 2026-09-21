@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 import { Figure, ListGroup } from "react-bootstrap";
@@ -7,7 +7,10 @@ import { Pokemon } from "../models/pokemon.m";
 import './Css/cssProyectos.css';
 
 const Listado=() => {
+
    const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+   const [query, setQuery] = useState(""); // Estado para almacenar la consulta de búsqueda
+
    useEffect(() => {
       const obtenerPokemons = async () => {
          const allPokemons = await getPokemons();
@@ -15,14 +18,27 @@ const Listado=() => {
       };
       obtenerPokemons();
    });
-   
+
+   const filteredPokemons = pokemons?.slice(0, 150).filter((pokemon) =>
+      pokemon.name.toLowerCase().match(query.toLowerCase()) // Filtra los Pokémon según la consulta de búsqueda
+   );
    return (
    <>
    <div className="content-wrapper">
       <div className="content">
          <div className="row gap-3">
-            <h1 className="text-center" ><b>Pokémon AnderCode</b></h1>
-            {pokemons?.slice(0, 150).map((pokemon) => (
+
+            <h1 className="text-center" ><b>Listado Pokémon</b></h1>
+            <header className="sectionSearch">
+               <input
+                  value={query}
+                  placeholder="Buscar Pokémon..."
+                  onChange={(e) => setQuery(e.target.value.trim())}
+                  type="text"
+               />
+            </header>
+            
+            {filteredPokemons?.slice(0, 150).map((pokemon) => (
                <Card className="mx-auto">
                   <Card.Header className="text-center tipoCard"><b>TIPO: {pokemon.tipo}</b></Card.Header>
                   <div className="Imagen">

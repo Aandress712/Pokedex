@@ -1,4 +1,4 @@
-export type pokemon = { 
+export type Pokemon = { 
     id: string;
     name: string;
     imggif: string;

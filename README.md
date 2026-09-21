@@ -1,50 +1,105 @@
-# React + TypeScript + Vite
+# Pokémon
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web de catálogo de Pokémon construida con React, TypeScript y Vite. La interfaz permite visualizar tarjetas con información de cada Pokémon, buscar por nombre y explorar estadísticas básicas como HP, ataque, defensa y velocidad.
 
-Currently, two official plugins are available:
+## Descripción
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este proyecto consume datos de una API pública de Pokémon y los muestra en una interfaz amigable con diseño responsivo usando Bootstrap. La vista principal presenta una lista de tarjetas con:
 
-## Expanding the ESLint configuration
+- nombre del Pokémon
+- tipo
+- imagen normal y versión shiny
+- número del pokémon
+- estadísticas principales
+- búsqueda en tiempo real
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Tecnologías
 
-- Configure the top-level `parserOptions` property like this:
+- React 18
+- TypeScript
+- Vite
+- Bootstrap 5
+- React Bootstrap
+- React Router DOM
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Estructura del proyecto
+
+```text
+Pokedex/
+├── src/
+│   ├── controller/
+│   │   └── getpokemon.tsx
+│   ├── models/
+│   │   └── pokemon.m.ts
+│   ├── pages/
+│   │   ├── Listado.tsx
+│   │   └── Css/
+│   │       └── cssProyectos.css
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── vite-env.d.ts
+├── index.html
+├── package.json
+├── vite.config.ts
+├── tsconfig.json
+├── eslint.config.js
+└── README.md
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Requisitos
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- Node.js 18 o superior
+- npm o yarn
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+## Instalación
+
+1. Clona el repositorio.
+2. Accede a la carpeta del proyecto:
+
+```bash
+cd Pokedex
 ```
+
+3. Instala las dependencias:
+
+```bash
+npm install
+```
+
+## Scripts disponibles
+
+```bash
+npm run dev
+```
+
+Inicia el servidor de desarrollo de Vite.
+
+```bash
+npm run build
+```
+
+Compila la aplicación para producción.
+
+```bash
+npm run preview
+```
+
+Previsualiza la versión construida.
+
+```bash
+npm run lint
+```
+
+Ejecuta ESLint para revisar el código.
+
+## Uso
+
+Al iniciar la aplicación, se cargan los Pokémon desde la fuente de datos y se muestran como tarjetas. Puedes usar la barra de búsqueda para filtrar por nombre en tiempo real.
+
+## Nota
+
+La aplicación obtiene la información desde un archivo JSON publicado en `unpkg.com`, por lo que no requiere backend propio para listar los Pokémon.
+
+## Autor
+
+Proyecto desarrollado por Andres Giraldo.

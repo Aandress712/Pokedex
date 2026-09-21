@@ -1,12 +1,15 @@
 .content-wrapper{
     width: 100%;
-    display: flex;
-    justify-content: center;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.171);
+    display: flex;
+    background-image: url('https://arkaiacorp.com/static/img/articulos/pokemon-pokopia-guia-completa-pokemon-habitat.webp');
+    background-size: cover;
+    justify-content: center;
 }
 .content {
-    background-color: rgba(0, 0, 0, 0.164);
+    width: 100%;
+    background-image: url('https://arkaiacorp.com/static/img/articulos/pokemon-pokopia-guia-completa-pokemon-habitat.webp');
+    background-image: inherit;
 }
 .mx-auto {
     background-image: url('https://img.magnific.com/vector-gratis/arte-pop-comic-lineas-zoom-expresion_84443-21877.jpg?semt=ais_hybrid&w=740&q=80');
@@ -90,7 +93,9 @@
     width: 20px;
     height: 20px;
 }
-
+.sectionSearch {
+    background-color: transparent;
+}
 
 
 
